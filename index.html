@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafeteria Delícia</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ESTILOS GERAIS DO SITE */
+
+      body {
+        padding-top: 80px; /* Espaço para a navbar fixa */
+        font-family: "Outfit", sans-serif; /* Fonte principal */
+        margin: 0; /* Remove margens padrão */
+      }
+
+      /* LAYOUT E ESPAÇAMENTOS */
+
+      .content-margin {
+        margin-left: 5%; /* Margem lateral esquerda */
+        margin-right: 5%; /* Margem lateral direita */
+      }
+
+      .section-margin {
+        margin-top: 3rem; /* Espaço superior entre seções */
+        margin-bottom: 3rem; /* Espaço inferior entre seções */
+      }
+
+      /* BARRA DE NAVEGAÇÃO */
+
+      .navbar-custom {
+        background-color: #f5f5dc !important; /* Cor bege de fundo */
+        padding: 15px 5%; /* Espaçamento interno com mesma margem do conteúdo */
+      }
+
+      .navbar-custom .navbar-brand {
+        font-size: 1.8rem; /* Tamanho do logo */
+        font-weight: 500; /* Peso da fonte */
+        color: #5c3a21 !important; /* Cor marrom escuro */
+      }
+
+      .navbar-custom .nav-link {
+        font-size: 1.1rem; /* Tamanho dos links */
+        color: #5c3a21 !important; /* Cor dos links */
+        margin: 0 10px; /* Espaçamento entre links */
+        font-weight: 500; /* Peso da fonte */
+        text-transform: uppercase; /* Texto em maiúsculas */
+      }
+
+      .navbar-custom .nav-link:hover {
+        color: #8b4513 !important; /* Cor ao passar o mouse */
+      }
+
+      /* CARROSSEL PRINCIPAL */
+
+      .carousel-container {
+        margin: 2rem 5% 3rem; /* Margens: topo | laterais | base */
+      }
+
+      .carousel-item {
+        height: 500px; /* Altura fixa do carrossel */
+        border-radius: 10px; /* Bordas arredondadas */
+        overflow: hidden; /* Esconde conteúdo que ultrapassa */
+      }
+
+      .carousel-item img {
+        object-fit: cover; /* Preenche o espaço mantendo proporção */
+        height: 100%; /* Altura total */
+        width: 100%; /* Largura total */
+      }
+
+      /* SEÇÃO DE CARDS */
+
+      .card-section {
+        margin: 4rem 5%; /* Margem externa da seção */
+      }
+
+      .card {
+        border: none; /* Remove borda padrão */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        transition: transform 0.3s; /* Animação ao passar o mouse */
+        margin-bottom: 2rem; /* Espaço entre cards */
+        border-radius: 10px; /* Bordas arredondadas */
+      }
+
+      .card:hover {
+        transform: translateY(-5px); /* Efeito de levantar ao passar mouse */
+      }
+
+      .card-img-top {
+        height: 200px; /* Altura fixa para imagens */
+        object-fit: cover; /* Preenche espaço mantendo proporção */
+        border-top-left-radius: 10px; /* Arredonda cantos superiores */
+        border-top-right-radius: 10px;
+      }
+
+      /* BOTÕES PRINCIPAIS */
+
+      .btn-primary {
+        background-color: #5c3a21; /* Cor marrom escuro */
+        border-color: #5c3a21; /* Cor da borda */
+        margin-top: 1rem; /* Espaço superior */
+      }
+
+      .btn-primary:hover {
+        background-color: #8b4513; /* Cor ao passar mouse */
+        border-color: #8b4513;
+      }
+
+      /* RODAPÉ */
+
+      footer {
+        background-color: #83593c !important; /* Cor de fundo */
+        margin-top: 5rem; /* Espaço acima do footer */
+        padding: 3rem 5%; /* Espaçamento interno */
+      }
+
+      /* UTILITÁRIOS DE CORES */
+
+      .text-brown {
+        color: #5c3a21; /* Cor do texto */
+      }
+
+      .btn-comprar {
+        background-color: #5c3a21;
+        color: white;
+        font-weight: 500;
+        padding: 8px 20px;
+        border-radius: 20px;
+      }
+
+      .btn-brown {
+        background-color: #5c3a21; /* Cor de fundo */
+        color: white; /* Cor do texto */
+      }
+
+      .btn-outline-brown {
+        border-color: #5c3a21; /* Cor da borda */
+        color: #5c3a21; /* Cor do texto */
+      }
+
+      .btn-outline-brown:hover {
+        background-color: #5c3a21; /* Cor ao passar mouse */
+        color: white; /* Cor do texto */
+      }
+
+      /* MEDIA QUERIES - MOBILE */
+
+      @media (max-width: 768px) {
+        .content-margin {
+          margin-left: 5%; /* Ajuste de margem para mobile */
+          margin-right: 5%;
+        }
+
+        .carousel-container {
+          margin: 1rem 3% 2rem; /* Ajuste de espaçamento */
+        }
+
+        .card-section {
+          margin: 3rem 3%; /* Redução de margem em mobile */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar Fixa no Topo -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+      <div class="container-fluid container-margem">
+        <a class="navbar-brand" href="index.html">
+          <i class="fas fa-mug-hot"></i> Cafeteria Delícia
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">HOME</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="cardapio.html"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                CARDAPIO
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="cardapio.html#cafes-quentes"
+                    >CAFÉS QUENTES</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="cardapio.html#cafe-gelados"
+                    >CAFÉS GELADO</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="cardapio.html#lanches"
+                    >LANCHES</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="cardapio.html#sobremesas"
+                    >SOBREMESAS</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contato.html">CONTATO</a>
+            </li>
+          </ul>
+
+          <div class="d-flex">
+            <a href="contato.html" class="btn btn-comprar">COMPRE AGORA</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Carousel (Destaques) -->
+    <div class="carousel-container">
+      <div id="cafeCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="assets/img/8.jpg" />
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Nossos Cafés Especiais</h3>
+              <p>Feitos com grãos selecionados e torra artesanal</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="assets/img/5.jpg" class="d-block w-100" alt="Promoção" />
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Promoção do Dia</h3>
+              <p>Todos os bolos com 20% de desconto às segundas-feiras</p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#cafeCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#cafeCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+    <!-- Cards -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <h2 class="mb-4">POR QUE ESCOLHER NOSSA CAFETERIA?</h2>
+            <p class="lead">
+              Descubra a experiência única que preparamos para você
+            </p>
+
+            <div class="mt-4">
+              <p>
+                Na Cafeteria Delícia, cada xícara de café conta uma história.
+                Nossos grãos são selecionados manualmente e torrados
+                artesanalmente para garantir o máximo de sabor e aroma em cada
+                bebida.
+              </p>
+
+              <ul class="list-unstyled">
+                <li class="mb-3">
+                  <i class="fas fa-coffee me-2 text-brown"></i>
+                  <strong>Variedade Premium:</strong> Mais de 20 tipos de café
+                  de origem única
+                </li>
+                <li class="mb-3">
+                  <i class="fas fa-bread-slice me-2 text-brown"></i>
+                  <strong>Confeitaria Artesanal:</strong> Doces e salgados
+                  feitos diariamente
+                </li>
+                <li class="mb-3">
+                  <i class="fas fa-users me-2 text-brown"></i>
+                  <strong>Baristas Certificados:</strong> Profissionais
+                  apaixonados por café
+                </li>
+                <li class="mb-3">
+                  <i class="fas fa-couch me-2 text-brown"></i>
+                  <strong>Ambiente Aconchegante:</strong> Design pensado para
+                  seu conforto
+                </li>
+                <li>
+                  <i class="fas fa-calendar-alt me-2 text-brown"></i>
+                  <strong>Eventos Especiais:</strong> Degustações e workshops
+                  mensais
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <h4 class="card-title mb-4">Nossa Filosofia</h4>
+                <p class="card-text">
+                  Acreditamos que um bom café vai além da bebida - é sobre criar
+                  momentos memoráveis. Por isso:
+                </p>
+
+                <div class="d-flex mb-3">
+                  <div class="me-4 text-center">
+                    <i class="fas fa-seedling fs-2 text-brown mb-2"></i>
+                    <small>Grãos selecionados</small>
+                  </div>
+                  <div class="me-4 text-center">
+                    <i class="fas fa-clock fs-2 text-brown mb-2"></i>
+                    <small>Torra artesanal</small>
+                  </div>
+                  <div class="text-center">
+                    <i class="fas fa-heart fs-2 text-brown mb-2"></i>
+                    <small>Preparação com amor</small>
+                  </div>
+                </div>
+
+                <p class="card-text">
+                  Visite-nos e experimente a diferença de um café preparado com
+                  cuidado em cada etapa, desde a seleção dos grãos até a xícara
+                  final.
+                </p>
+
+                <div class="mt-4">
+                  <a href="cardapio.html" class="btn btn-outline-brown"
+                    >Conheça nosso cardápio</a
+                  >
+                  <a href="contato.html" class="btn btn-outline-brown"
+                    >Agende uma degustação</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards (Produtos) -->
+    <div class="card-section">
+      <div class="container">
+        <h2 class="text-center mb-5">Nossos Destaques</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img
+                src="assets/img/espresso tradiconal.jpg"
+                class="card-img-top"
+                alt="Café Expresso"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Café Expresso</h5>
+                <p class="card-text">
+                  Intenso e encorpado, feito com grãos selecionados da Colômbia
+                  e torra média para realçar o sabor.
+                </p>
+                <a href="#" class="btn btn-primary">R$ 5,90</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img
+                src="assets\img\Bolo de Chocolate.jpg"
+                class="card-img-top"
+                alt="Bolo"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Bolo de Chocolate</h5>
+                <p class="card-text">
+                  Delicioso bolo caseiro com cobertura ganache e recheio de
+                  brigadeiro cremoso.
+                </p>
+                <a href="#" class="btn btn-primary">R$ 8,50</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img
+                src="assets\img\caputino cremoso.jpg"
+                class="card-img-top"
+                alt="Cappuccino"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Cappuccino</h5>
+                <p class="card-text">
+                  Cremoso com uma pitada de canela e chocolate em pó, feito com
+                  leite vaporizado na hora.
+                </p>
+                <a href="#" class="btn btn-primary">R$ 7,90</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-white" style="background-color: #5c3a21">
+      <div class="container py-5">
+        <div class="row">
+          <!-- Primeira Coluna - Logo e Descrição -->
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h3 class="mb-3">
+              <i class="fas fa-mug-hot"></i>Cafeteria Delícia
+            </h3>
+            <p class="mb-4">
+              Sabores que marcam momentos especiais! Personalize seu cardápio e
+              torne seu evento inesquecível com nosso buffet exclusivo.
+            </p>
+          </div>
+
+          <!-- Segunda Coluna - Navegação -->
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h5 class="mb-3">Navegue pelo site</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="index.html" class="text-white text-decoration-none"
+                  >Home</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="cardapio.html" class="text-white text-decoration-none"
+                  >Cardápio</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="contato.html" class="text-white text-decoration-none"
+                  >Contato</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Terceira Coluna - Newsletter -->
+          <div class="col-md-4">
+            <h5 class="mb-3">Receba novidades e promoções!</h5>
+            <p class="mb-3">Fique por dentro das novidades!</p>
+            <div class="input-group mb-3">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Endereço de e-mail"
+              />
+              <button class="btn btn-light" type="button">Enviar</button>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-4" style="border-color: rgba(255, 255, 255, 0.1)" />
+
+        <div
+          class="d-flex flex-column flex-md-row justify-content-between align-items-center"
+        >
+          <p class="mb-2 mb-md-0">
+            &copy; JustkeDev 2025. Todos os direitos reservados.
+          </p>
+          <!--&copy JustkeDev 2025 
+▒▒▒▒▒▒▒▒█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+▒▒▒▒▒▒▒█░▒▒▒▒▒▒▒▓▒▒▓▒▒▒▒▒▒▒░█
+▒▒▒▒▒▒▒█░▒▒▓▒▒▒▒▒▒▒▒▒▄▄▒▓▒▒░█░▄▄
+▒▒▄▀▀▄▄█░▒▒▒▒▒▒▓▒▒▒▒█░░▀▄▄▄▄▄▀░░█
+▒▒█░░░░█░▒▒▒▒▒▒▒▒▒▒▒█░░░░░░░░░░░█
+▒▒▒▀▀▄▄█░▒▒▒▒▓▒▒▒▓▒█░░░█▒░░░░█▒░░█
+▒▒▒▒▒▒▒█░▒▓▒▒▒▒▓▒▒▒█░░░░░░░▀░░░░░█
+▒▒▒▒▒▄▄█░▒▒▒▓▒▒▒▒▒▒▒█░░█▄▄█▄▄█░░█
+▒▒▒▒█░░░█▄▄▄▄▄▄▄▄▄▄█░█▄▄▄▄▄▄▄▄▄█
+-->
+          <div class="social-icons">
+            <a href="#" class="text-white mx-2"
+              ><i class="bi bi-instagram fs-5"></i
+            ></a>
+            <a href="#" class="text-white mx-2"
+              ><i class="bi bi-facebook fs-5"></i
+            ></a>
+            <a href="#" class="text-white mx-2"
+              ><i class="bi bi-whatsapp fs-5"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

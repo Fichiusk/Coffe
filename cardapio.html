@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Cardápio | Cafeteria Delícia</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ESTILOS GERAIS DO SITE */
+      body {
+        padding-top: 80px; /* Espaço para a navbar fixa */
+        font-family: "Outfit", sans-serif; /* Fonte principal */
+        margin: 0; /* Remove margens padrão */
+        background-color: #f8f9fa;
+      }
+
+      /* BARRA DE NAVEGAÇÃO */
+      .navbar-custom {
+        background-color: #f5f5dc !important; /* Cor bege de fundo */
+        padding: 15px 5%; /* Espaçamento interno com mesma margem do conteúdo */
+      }
+
+      .navbar-custom .navbar-brand {
+        font-size: 1.8rem; /* Tamanho do logo */
+        font-weight: 500; /* Peso da fonte */
+        color: #5c3a21 !important; /* Cor marrom escuro */
+      }
+
+      .navbar-custom .nav-link {
+        font-size: 1.1rem; /* Tamanho dos links */
+        color: #5c3a21 !important; /* Cor dos links */
+        margin: 0 10px; /* Espaçamento entre links */
+        font-weight: 500; /* Peso da fonte */
+        text-transform: uppercase; /* Texto em maiúsculas */
+      }
+
+      .navbar-custom .nav-link:hover {
+        color: #8b4513 !important; /* Cor ao passar o mouse */
+      }
+
+      .btn-comprar {
+        background-color: #5c3a21;
+        color: white;
+        font-weight: 500;
+        padding: 8px 20px;
+        border-radius: 20px;
+      }
+
+      /* CABEÇALHO DO CARDÁPIO */
+      .cardapio-header {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("amb.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 80px 0;
+        margin-bottom: 40px;
+      }
+
+      /* CATEGORIAS DE PRODUTOS */
+      .categoria-title {
+        color: #5c3a21;
+        border-bottom: 2px solid #5c3a21;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+      }
+
+      /* CARDS DE PRODUTOS */
+      .produto-card {
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        margin-bottom: 30px;
+        height: 100%;
+      }
+
+      .produto-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .produto-img {
+        height: 200px;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .produto-body {
+        padding: 20px;
+      }
+
+      .produto-title {
+        color: #5c3a21;
+        font-weight: 600;
+      }
+
+      .produto-preco {
+        color: #8b4513;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .badge-tipo {
+        background-color: #8b4513;
+        color: white;
+      }
+
+      /* RODAPÉ */
+      footer {
+        background-color: #5c3a21 !important;
+        margin-top: 5rem;
+        padding: 3rem 5%;
+      }
+
+      /* RESPONSIVIDADE */
+      @media (max-width: 768px) {
+        .navbar-custom {
+          padding: 15px 3%;
+        }
+
+        .cardapio-header {
+          padding: 60px 0;
+        }
+
+        .produto-card {
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar Fixa no Topo -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <i class="fas fa-mug-hot"></i> Cafeteria Delícia
+        </a>
+        <button
+          class="navbar-toggler"
+          data-bs-target="#navbarNav"
+          data-bs-toggle="collapse"
+          type="button"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">HOME</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                aria-expanded="false"
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                href="cardapio.html"
+                role="button"
+              >
+                CARDAPIO
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="cardapio.html#cafes-quentes"
+                    >CAFÉS QUENTES</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="cardapio.html#cafe-gelados"
+                    >CAFÉS GELADO</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="cardapio.html#lanches"
+                    >LANCHES</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="cardapio.html#sobremesas"
+                    >SOBREMESAS</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contato.html">CONTATO</a>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <a class="btn btn-comprar" href="contato.html">COMPRE AGORA</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Cabeçalho do Cardápio -->
+    <div class="cardapio-header text-center">
+      <div class="container">
+        <h1 class="display-4 fw-bold">Cardápio Completo</h1>
+        <p class="lead">Conheça nossos deliciosos produtos</p>
+      </div>
+    </div>
+    <!-- Conteúdo do Cardápio -->
+    <div class="container my-5">
+      <h2 class="text-center mb-4" id="cafes-quentes">Cafés Quentes</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Expresso Tradicional"
+              class="produto-img"
+              src="assets\img\espresso tradiconal.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Expresso Tradicional</h5>
+                <span class="badge badge-tipo">Cafes Quentes</span>
+              </div>
+              <p class="text-muted">Grãos arábica torrados na hora</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 5,90</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#cafes_quentes_1"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Cappuccino Cremoso"
+              class="produto-img"
+              src="assets\img\caputino cremoso.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Cappuccino Cremoso</h5>
+                <span class="badge badge-tipo">Cafes Quentes</span>
+              </div>
+              <p class="text-muted">Com canela e chocolate em pó</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 7,90</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#cafes_quentes_2"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Latte Artístico"
+              class="produto-img"
+              src="assets\img\Latte.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Latte Artístico</h5>
+                <span class="badge badge-tipo">Cafes Quentes</span>
+              </div>
+              <p class="text-muted">Com desenho na espuma</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 8,50</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#cafes_quentes_3"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Mocaccino"
+              class="produto-img"
+              src="assets\img\mocaccino.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Mocaccino</h5>
+                <span class="badge badge-tipo">Cafes Quentes</span>
+              </div>
+              <p class="text-muted">Com chocolate e leite vaporizado</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 9,00</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#cafes_quentes_4"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Macchiato"
+              class="produto-img"
+              src="assets\img\macchiato.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Macchiato</h5>
+                <span class="badge badge-tipo">Cafes Quentes</span>
+              </div>
+              <p class="text-muted">Expresso com espuma de leite</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 7,50</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#cafes_quentes_5"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Flat White"
+              class="produto-img"
+              src="assets\img\flatwhite.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Flat White</h5>
+                <span class="badge badge-tipo">Cafes Quentes</span>
+              </div>
+              <p class="text-muted">Leite vaporizado com microespuma</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 8,00</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#cafes_quentes_6"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="text-center my-4" id="cafes-gelados">Cafés Gelados</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Iced Coffee"
+              class="produto-img"
+              src="assets\img\iced coffe.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Iced Coffee</h5>
+                <span class="badge badge-tipo">Cafes Gelados</span>
+              </div>
+              <p class="text-muted">Café gelado com cubos de gelo</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 6,90</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#cafes_gelados_1"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Cold Brew"
+              class="produto-img"
+              src="assets\img\ColdBrew.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Cold Brew</h5>
+                <span class="badge badge-tipo">Cafes Gelados</span>
+              </div>
+              <p class="text-muted">Infusão a frio por 12h</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 8,50</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#cafes_gelados_2"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Frappuccino Clássico"
+              class="produto-img"
+              src="assets\img\Frappuccino Clássico.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Frappuccino Clássico</h5>
+                <span class="badge badge-tipo">Cafes Gelados</span>
+              </div>
+              <p class="text-muted">Mistura gelada de café com chantilly</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 9,90</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#cafes_gelados_3"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Affogato Gelado"
+              class="produto-img"
+              src="assets\img\affogato.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Affogato Gelado</h5>
+                <span class="badge badge-tipo">Cafes Gelados</span>
+              </div>
+              <p class="text-muted">Sorvete com shot de café</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 10,00</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#cafes_gelados_4"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Café com Gelo de Leite"
+              class="produto-img"
+              src="assets\img\cafe com gelo de leite.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Café com Gelo de Leite</h5>
+                <span class="badge badge-tipo">Cafes Gelados</span>
+              </div>
+              <p class="text-muted">Gelo de leite com café</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 7,90</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#cafes_gelados_5"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Espresso Tônico"
+              class="produto-img"
+              src="assets\img\espresso tonico.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Espresso Tônico</h5>
+                <span class="badge badge-tipo">Cafes Gelados</span>
+              </div>
+              <p class="text-muted">Expresso com água tônica</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 8,50</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#cafes_gelados_6"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="text-center my-4" id="lanches">Lanches</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Croissant Presunto e Queijo"
+              class="produto-img"
+              src="assets\img\Croissant Presunto e Queijo.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Croissant Presunto e Queijo</h5>
+                <span class="badge badge-tipo">Lanches</span>
+              </div>
+              <p class="text-muted">Folhado recheado crocante</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 6,50</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#lanches_1"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Pão de Queijo Recheado"
+              class="produto-img"
+              src="assets\img\Pão de Queijo Recheado.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Pão de Queijo Recheado</h5>
+                <span class="badge badge-tipo">Lanches</span>
+              </div>
+              <p class="text-muted">Com requeijão cremoso</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 4,50</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#lanches_2"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Sanduíche Natural"
+              class="produto-img"
+              src="assets\img\sanduiche natural.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Sanduíche Natural</h5>
+                <span class="badge badge-tipo">Lanches</span>
+              </div>
+              <p class="text-muted">Frango desfiado com maionese</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 7,00</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#lanches_3"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Tostex Frango Cremoso"
+              class="produto-img"
+              src="assets\img\Tostex Frango Cremoso.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Tostex Frango Cremoso</h5>
+                <span class="badge badge-tipo">Lanches</span>
+              </div>
+              <p class="text-muted">Frango e queijo derretido</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 8,00</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#lanches_4"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Wrap com Cream Cheese"
+              class="produto-img"
+              src="assets\img\Wrap com Cream Cheese.jpeg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Wrap com Cream Cheese</h5>
+                <span class="badge badge-tipo">Lanches</span>
+              </div>
+              <p class="text-muted">Leve e saudável</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 9,00</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#lanches_5"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Empada de Palmito"
+              class="produto-img"
+              src="assets\img\Empada de Palmito.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Empada de Palmito</h5>
+                <span class="badge badge-tipo">Lanches</span>
+              </div>
+              <p class="text-muted">Massa amanteigada e recheio leve</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 5,50</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#lanches_6"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="text-center my-4" id="sobremesas">Sobremesas</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Bolo de Chocolate"
+              class="produto-img"
+              src="assets\img\Bolo de Chocolate.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Bolo de Chocolate</h5>
+                <span class="badge badge-tipo">Sobremesas</span>
+              </div>
+              <p class="text-muted">Com recheio de brigadeiro</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 8,50</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#sobremesas_1"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Torta de Limão"
+              class="produto-img"
+              src="assets\img\Torta de Limão.png"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Torta de Limão</h5>
+                <span class="badge badge-tipo">Sobremesas</span>
+              </div>
+              <p class="text-muted">Com mousse de limão siciliano</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 9,90</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#sobremesas_2"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Cookie Artesanal"
+              class="produto-img"
+              src="assets\img\Cookie Artesanal.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Cookie Artesanal</h5>
+                <span class="badge badge-tipo">Sobremesas</span>
+              </div>
+              <p class="text-muted">Com gotas de chocolate</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 6,50</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#sobremesas_3"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Brownie com Nozes"
+              class="produto-img"
+              src="assets\img\Brownie com Nozes.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Brownie com Nozes</h5>
+                <span class="badge badge-tipo">Sobremesas</span>
+              </div>
+              <p class="text-muted">Macio por dentro e crocante por fora</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 7,50</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#sobremesas_4"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Mousse de Maracujá"
+              class="produto-img"
+              src="assets\img\Mousse de Maracujá.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Mousse de Maracujá</h5>
+                <span class="badge badge-tipo">Sobremesas</span>
+              </div>
+              <p class="text-muted">Refrescante e leve</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 6,90</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#sobremesas_5"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="produto-card">
+            <img
+              alt="Pudim de Leite"
+              class="produto-img"
+              src="assets\img\Pudim de Leite.jpg"
+            />
+            <div class="produto-body p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <h5 class="produto-title">Pudim de Leite</h5>
+                <span class="badge badge-tipo">Sobremesas</span>
+              </div>
+              <p class="text-muted">Tradicional com calda de caramelo</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="produto-preco">R$ 7,00</span>
+                <button
+                  class="btn btn-sm btn-outline-dark"
+                  data-bs-target="#sobremesas_6"
+                  data-bs-toggle="modal"
+                >
+                  Ver mais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="text-white">
+      <div class="container py-5">
+        <div class="row">
+          <!-- Primeira Coluna - Logo e Descrição -->
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h3 class="mb-3">
+              <i class="fas fa-mug-hot"></i> Cafeteria Delícia
+            </h3>
+            <p class="mb-4">
+              Sabores que marcam momentos especiais! Personalize seu cardápio e
+              torne seu evento inesquecível com nosso buffet exclusivo.
+            </p>
+          </div>
+          <!-- Segunda Coluna - Navegação -->
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h5 class="mb-3">Navegue pelo site</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a class="text-white text-decoration-none" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="mb-2">
+                <a class="text-white text-decoration-none" href="cardapio.html"
+                  >Cardápio</a
+                >
+              </li>
+              <li class="mb-2">
+                <a class="text-white text-decoration-none" href="contato.html"
+                  >Contato</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Terceira Coluna - Newsletter -->
+          <div class="col-md-4">
+            <h5 class="mb-3">Receba novidades e promoções!</h5>
+            <p class="mb-3">Fique por dentro das novidades!</p>
+            <div class="input-group mb-3">
+              <input
+                class="form-control"
+                placeholder="Endereço de e-mail"
+                type="email"
+              />
+              <button class="btn btn-light" type="button">Enviar</button>
+            </div>
+          </div>
+        </div>
+        <hr class="my-4" style="border-color: rgba(255, 255, 255, 0.1)" />
+        <div
+          class="d-flex flex-column flex-md-row justify-content-between align-items-center"
+        >
+          <p class="mb-2 mb-md-0">
+            © JustkeDev 2025. Todos os direitos reservados.
+          </p>
+          <div class="social-icons">
+            <a class="text-white mx-2" href="#"
+              ><i class="bi bi-instagram fs-5"></i
+            ></a>
+            <a class="text-white mx-2" href="#"
+              ><i class="bi bi-facebook fs-5"></i
+            ></a>
+            <a class="text-white mx-2" href="#"
+              ><i class="bi bi-whatsapp fs-5"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <div
+      aria-hidden="true"
+      aria-labelledby="cafes_quentes_1_label"
+      class="modal fade"
+      id="cafes_quentes_1"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cafes_quentes_1_label">
+              Expresso Tradicional
+            </h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\espresso tradiconal.jpg"
+            />
+            <p>Grãos arábica torrados na hora</p>
+            <p><strong>Preço:</strong> R$ 5,90</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="cafes_quentes_2_label"
+      class="modal fade"
+      id="cafes_quentes_2"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cafes_quentes_2_label">
+              Cappuccino Cremoso
+            </h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\caputino cremoso.jpg"
+            />
+            <p>Com canela e chocolate em pó</p>
+            <p><strong>Preço:</strong> R$ 7,90</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="cafes_quentes_3_label"
+      class="modal fade"
+      id="cafes_quentes_3"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cafes_quentes_3_label">
+              Latte Artístico
+            </h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\Latte.jpg"
+            />
+            <p>Com desenho na espuma</p>
+            <p><strong>Preço:</strong> R$ 8,50</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="cafes_quentes_4_label"
+      class="modal fade"
+      id="cafes_quentes_4"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cafes_quentes_4_label">Mocaccino</h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\mocaccino.jpg"
+            />
+            <p>Com chocolate e leite vaporizado</p>
+            <p><strong>Preço:</strong> R$ 9,00</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="cafes_quentes_5_label"
+      class="modal fade"
+      id="cafes_quentes_5"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cafes_quentes_5_label">Macchiato</h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\macchiato.jpg"
+            />
+            <p>Expresso com espuma de leite</p>
+            <p><strong>Preço:</strong> R$ 7,50</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="cafes_quentes_6_label"
+      class="modal fade"
+      id="cafes_quentes_6"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cafes_quentes_6_label">Flat White</h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\flatwhite.jpg"
+            />
+            <p>Leite vaporizado com microespuma</p>
+            <p><strong>Preço:</strong> R$ 8,00</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="cafes_gelados_1_label"
+      class="modal fade"
+      id="cafes_gelados_1"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cafes_gelados_1_label">Iced Coffee</h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\iced coffe.jpg"
+            />
+            <p>Café gelado com cubos de gelo</p>
+            <p><strong>Preço:</strong> R$ 6,90</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="cafes_gelados_2_label"
+      class="modal fade"
+      id="cafes_gelados_2"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cafes_gelados_2_label">Cold Brew</h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\ColdBrew.jpg"
+            />
+            <p>Infusão a frio por 12h</p>
+            <p><strong>Preço:</strong> R$ 8,50</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="cafes_gelados_3_label"
+      class="modal fade"
+      id="cafes_gelados_3"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cafes_gelados_3_label">
+              Frappuccino Clássico
+            </h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\Frappuccino Clássico.jpg"
+            />
+            <p>Mistura gelada de café com chantilly</p>
+            <p><strong>Preço:</strong> R$ 9,90</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="cafes_gelados_4_label"
+      class="modal fade"
+      id="cafes_gelados_4"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cafes_gelados_4_label">
+              Affogato Gelado
+            </h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\affogato.jpg"
+            />
+            <p>Sorvete com shot de café</p>
+            <p><strong>Preço:</strong> R$ 10,00</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="cafes_gelados_5_label"
+      class="modal fade"
+      id="cafes_gelados_5"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cafes_gelados_5_label">
+              Café com Gelo de Leite
+            </h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\cafe com gelo de leite.jpg"
+            />
+            <p>Gelo de leite com café</p>
+            <p><strong>Preço:</strong> R$ 7,90</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="cafes_gelados_6_label"
+      class="modal fade"
+      id="cafes_gelados_6"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cafes_gelados_6_label">
+              Espresso Tônico
+            </h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\espresso tonico.jpg"
+            />
+            <p>Expresso com água tônica</p>
+            <p><strong>Preço:</strong> R$ 8,50</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="lanches_1_label"
+      class="modal fade"
+      id="lanches_1"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="lanches_1_label">
+              Croissant Presunto e Queijo
+            </h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\Croissant Presunto e Queijo.jpg"
+            />
+            <p>Folhado recheado crocante</p>
+            <p><strong>Preço:</strong> R$ 6,50</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="lanches_2_label"
+      class="modal fade"
+      id="lanches_2"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="lanches_2_label">
+              Pão de Queijo Recheado
+            </h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\Pão de Queijo Recheado.jpg"
+            />
+            <p>Com requeijão cremoso</p>
+            <p><strong>Preço:</strong> R$ 4,50</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="lanches_3_label"
+      class="modal fade"
+      id="lanches_3"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="lanches_3_label">Sanduíche Natural</h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\sanduiche natural.jpg"
+            />
+            <p>Frango desfiado com maionese</p>
+            <p><strong>Preço:</strong> R$ 7,00</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="lanches_4_label"
+      class="modal fade"
+      id="lanches_4"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="lanches_4_label">
+              Tostex Frango Cremoso
+            </h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\Tostex Frango Cremoso.jpg"
+            />
+            <p>Frango e queijo derretido</p>
+            <p><strong>Preço:</strong> R$ 8,00</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="lanches_5_label"
+      class="modal fade"
+      id="lanches_5"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="lanches_5_label">
+              Wrap com Cream Cheese
+            </h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\Wrap com Cream Cheese.jpeg"
+            />
+            <p>Leve e saudável</p>
+            <p><strong>Preço:</strong> R$ 9,00</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="lanches_6_label"
+      class="modal fade"
+      id="lanches_6"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="lanches_6_label">Empada de Palmito</h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\Empada de Palmito.jpg"
+            />
+            <p>Massa amanteigada e recheio leve</p>
+            <p><strong>Preço:</strong> R$ 5,50</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="sobremesas_1_label"
+      class="modal fade"
+      id="sobremesas_1"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="sobremesas_1_label">
+              Bolo de Chocolate
+            </h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\Bolo de Chocolate.jpg"
+            />
+            <p>Com recheio de brigadeiro</p>
+            <p><strong>Preço:</strong> R$ 8,50</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="sobremesas_2_label"
+      class="modal fade"
+      id="sobremesas_2"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="sobremesas_2_label">Torta de Limão</h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\Torta de Limão.png"
+            />
+            <p>Com mousse de limão siciliano</p>
+            <p><strong>Preço:</strong> R$ 9,90</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="sobremesas_3_label"
+      class="modal fade"
+      id="sobremesas_3"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="sobremesas_3_label">
+              Cookie Artesanal
+            </h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\Cookie Artesanal.jpg"
+            />
+            <p>Com gotas de chocolate</p>
+            <p><strong>Preço:</strong> R$ 6,50</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="sobremesas_4_label"
+      class="modal fade"
+      id="sobremesas_4"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="sobremesas_4_label">
+              Brownie com Nozes
+            </h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\Brownie com Nozes.jpg"
+            />
+            <p>Macio por dentro e crocante por fora</p>
+            <p><strong>Preço:</strong> R$ 7,50</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="sobremesas_5_label"
+      class="modal fade"
+      id="sobremesas_5"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="sobremesas_5_label">
+              Mousse de Maracujá
+            </h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\Mousse de Maracujá.jpg"
+            />
+            <p>Refrescante e leve</p>
+            <p><strong>Preço:</strong> R$ 6,90</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="sobremesas_6_label"
+      class="modal fade"
+      id="sobremesas_6"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="sobremesas_6_label">Pudim de Leite</h5>
+            <button
+              aria-label="Fechar"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              type="button"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid rounded mb-3"
+              src="assets\img\Pudim de Leite.jpg"
+            />
+            <p>Tradicional com calda de caramelo</p>
+            <p><strong>Preço:</strong> R$ 7,00</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              type="button"
+            >
+              Fechar
+            </button>
+            <button class="btn btn-primary" type="button">+ Adicionar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
